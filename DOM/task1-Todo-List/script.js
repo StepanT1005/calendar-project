@@ -1,6 +1,6 @@
 'use strict';
 
-const tasks = [
+export const tasks = [
   { text: 'Buy milk', done: false },
   { text: 'Pick up Tom from airport', done: false },
   { text: 'Visit party', done: false },
@@ -12,7 +12,7 @@ const tasks = [
  * @param {object[]} tasksList
  * @return {undefined}
  */
-export const renderTasks = tasksList => {
+const renderTasks = tasksList => {
     const taskItem = document.querySelector('.list');
     const taskItemElems = tasksList
     .sort((a, b) => a.done - b.done)
