@@ -2,7 +2,7 @@ const spanElem = document.querySelector('.rect_span');
 const pElem = document.querySelector('.rect_p');
 const divElem = document.querySelector('.rect_div');
 
-function logTarget(text, color) {
+export function logTarget(text, color) {
 const eventListElem = document.querySelector('.events-list');
 eventListElem.innerHTML += `<span style="color: ${color}; margin-left: 8px">${text}</span>`;
 };
@@ -52,7 +52,7 @@ const logGreenSpan = logTarget.bind(null,'SPAN', 'green');
 // const attachElem = document.querySelector('.attach-handlers-btn');
 // attachElem.addEventListener('click', positionEventListeners)
 
-positionEventListeners = (position = true) => {
+export function positionEventListeners(position = true){
     if (position){
 spanElem.addEventListener('click', logGreySpan, true);
 pElem.addEventListener('click', logGreyP, true);
@@ -74,7 +74,7 @@ divElem.removeEventListener('click', logGreyDiv, true);
 positionEventListeners();
 
 const clearElem = document.querySelector('.clear-btn');
-clear = () => {
+export function clear() {
     const eventListElem = document.querySelector('.events-list');
     eventListElem.innerHTML = ''; 
 };
@@ -82,7 +82,7 @@ clear = () => {
 clearElem.addEventListener('click', clear);
 
 const removeBtnElem = document.querySelector('.remove-handlers-btn');
-removeBtnFunction = () => {
+export function removeBtnFunction() {
     positionEventListeners(false);
 }
 
