@@ -1,0 +1,49 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .arena {
+    display: flex;
+  }
+  
+  .sector {
+    display: flex;
+    flex-direction: column;
+    background-color: coral;
+    margin: 16px;
+  }
+  
+  .sector__line {
+    display: flex;
+    height: 20px;
+    width: 200px;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+  .sector__seat {
+    height: 16px;
+    width: 16px;
+    background-color: aqua;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .board {
+    height: 100px;
+    width: 200px;
+    background-color: goldenrod;
+    border-radius: 8px;
+    color: white;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    text-transform: uppercase;
+  }
+  
