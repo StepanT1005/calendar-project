@@ -1,4 +1,4 @@
- const getDiff = (startDate, endDate) => {
+export const getDiff = (startDate, endDate) => {
     const diff = (Math.abs(startDate - endDate)) / 1000;
     const min = 60;
     const h = min * 60;
