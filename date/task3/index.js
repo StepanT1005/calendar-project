@@ -28,7 +28,7 @@
 // // console.log(getDiff(date1))
 
 
-const getDiff = (startDate, endDate) => {
+export const getDiff = (startDate, endDate) => {
     const diff = (startDate - endDate) > 0? (startDate - endDate):(endDate - startDate);
     const a = new Date(diff)
     let secundes = a.getSeconds()
