@@ -36,7 +36,7 @@ export const getDiff = (startDate, endDate) => {
     let hours = a.getHours() - 3;
     let day = 0;
     const milisecundsInDay = 1000 * 3600 * 24;    
-    (diff - milisecundsInDay) < 0? undefined: day = (Math.trunc(diff / milisecundsInDay));
+    (diff - milisecundsInDay) < 0? undefined: day = (Math.trunc(diff / milisecundsInDay) - 1);
     return `${day}d ${hours}h ${minutes}m ${secundes}s`
     };
 
