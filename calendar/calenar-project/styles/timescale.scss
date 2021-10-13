@@ -1,0 +1,16 @@
+// // стили боковой временной шкалы
+.time-slot:last-child{
+    padding-bottom: 200px;
+}
+.time-slot__time{
+    width: 9vw;
+    height: 60px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    font-size: 10px;
+}
+
+// .time-slot__time:last-child {
+//     padding-bottom: 50px;
+// }

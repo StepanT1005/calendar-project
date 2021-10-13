@@ -1,0 +1,280 @@
+.page {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.currentTime {
+  height: 2px;
+  background-color: red;
+  width: 12vw;
+}
+
+.circle {
+  height: 8px;
+  width: 8px;
+  border-radius: 4px;
+  background-color: red;
+}
+
+.currentTimeDiv {
+  display: flex;
+}
+
+.button {
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.icon-button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+}
+
+.modal {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal__content {
+  background: #fff;
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #cccccc45;
+  z-index: 10;
+}
+
+.popup__content {
+  position: absolute;
+  background: #fff;
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.hidden {
+  display: none;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.158);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.158);
+}
+
+.button {
+  margin: 20px 20px 10px;
+  width: 100px;
+}
+
+.header > .button:first-child {
+  height: 50px;
+  width: 130px;
+  padding: 15px;
+  border-radius: 32.5px;
+  display: flex;
+  justify-content: space-around;
+  margin-left: 45px;
+}
+
+.fa-plus {
+  color: #8463a3;
+}
+
+.calendar {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 60px);
+}
+.calendar__header {
+  display: flex;
+  height: 100px;
+  width: 100%;
+  align-items: center;
+  padding-left: 9vw;
+}
+.calendar__day-label {
+  height: 100px;
+  width: 13vw;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  text-transform: uppercase;
+}
+.calendar .day-label__day-name {
+  font-size: 10px;
+}
+.calendar .day-label__day-number {
+  font-size: 25px;
+}
+.calendar__body {
+  display: flex;
+  overflow: auto;
+}
+.calendar__week-container {
+  display: flex;
+}
+.calendar__week {
+  display: flex;
+}
+.calendar__time-slot {
+  width: 13vw;
+  height: 60px;
+  border: 1px solid rgba(0, 0, 0, 0.158);
+  position: relative;
+  width: 13vw;
+}
+
+.time-slot:last-child {
+  padding-bottom: 200px;
+}
+
+.time-slot__time {
+  width: 9vw;
+  height: 60px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: 10px;
+}
+
+.modal__content {
+  position: relative;
+  max-width: 60vw;
+  height: 60vh;
+}
+
+.create-event {
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+  height: 30vh;
+}
+.create-event__close-btn {
+  transform: rotate(45deg);
+  border: none;
+  font-weight: 100;
+  font-size: 40px;
+  display: block;
+  margin-left: auto;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  background-color: transparent;
+}
+
+.event-form {
+  display: flex;
+  flex-direction: column;
+}
+.event-form__submit-btn {
+  position: absolute;
+  bottom: 1.5vh;
+  right: 2vh;
+  background-color: #2a6ff0;
+  border: none;
+  color: white;
+  width: 14vw;
+  height: 5vh;
+  border-radius: 1vh;
+}
+.event-form__field {
+  border: none;
+  margin-top: 10vh;
+}
+.event-form > .event-form__field:first-child {
+  margin: 10px;
+  margin-left: 30px;
+  line-height: 30px;
+  font-size: 24px;
+  border-bottom: #2a6ff0 3px solid;
+}
+
+.event-form__field {
+  outline: none;
+}
+
+.btn {
+  position: absolute;
+  bottom: 1.5vh;
+  right: 2vh;
+  background-color: #2a6ff0;
+  border: none;
+  color: white;
+  width: 14vw;
+  height: 5vh;
+  border-radius: 1vh;
+}
+
+.event {
+  background-color: #6495ED;
+  border-radius: 10px;
+  padding: 8px;
+  color: white;
+  position: absolute;
+  width: 12vw;
+  z-index: 2;
+}
+.event__title {
+  margin-bottom: 8px;
+}
+
+.popup__content {
+  background-color: rgba(199, 32, 199, 0.815);
+}
+
+.popup-form__field {
+  margin: 10px;
+  margin-left: 0px;
+}
+
+.delete-event-btn {
+  background-color: gray;
+  text-transform: uppercase;
+  color: black;
+  border-radius: 5px;
+  border: none;
+  right: 20px;
+  bottom: 10px;
+  margin-left: 80px;
+}
+
+.popup-form__edit-btn {
+  text-transform: uppercase;
+  background-color: #17da17;
+  border-radius: 5px;
+  border: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+}
+
+/*# sourceMappingURL=styles.css.map */

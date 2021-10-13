@@ -1,0 +1,26 @@
+{
+  "name": "gromcode-calendar-js",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "lint": "npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrii142/gromcode-calendar-js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrii142/gromcode-calendar-js/issues"
+  },
+  "homepage": "https://github.com/andrii142/gromcode-calendar-js#readme",
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-import": "^2.20.1"
+  }
+}

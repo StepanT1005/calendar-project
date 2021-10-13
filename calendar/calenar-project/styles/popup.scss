@@ -1,0 +1,39 @@
+// .btn{
+//     position: absolute;
+//     bottom: 1.5vh;
+//     right: 2vh;
+//     background-color: #2a6ff0;
+//     border: none;
+//     color: white;
+//     width: 14vw;
+//     height: 5vh;
+//     border-radius: 1vh;
+//     }
+
+.popup__content{
+    background-color: rgba(199, 32, 199, 0.815);
+}
+
+.popup-form__field{
+    margin: 10px;
+    margin-left: 0px;
+}
+.delete-event-btn{
+    background-color: gray;
+    text-transform: uppercase;
+    color: rgb(0, 0, 0);
+    border-radius: 5px;
+    border: none;
+    // position: absolute;
+    right: 20px;
+    bottom: 10px;
+    margin-left: 80px;
+}
+
+.popup-form__edit-btn {
+    text-transform: uppercase;
+    background-color: rgb(23, 218, 23);
+    border-radius: 5px;
+    border: none;
+
+}

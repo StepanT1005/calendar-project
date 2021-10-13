@@ -1,0 +1,24 @@
+.header {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.158);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.158);
+
+}
+.button {
+    margin: 20px 20px 10px;
+    width: 100px;
+}
+.header > .button:first-child {
+    height: 50px;
+    width: 130px;
+    padding: 15px;
+    border-radius: 32.5px;
+    display: flex;
+    justify-content: space-around;
+    margin-left: 45px; 
+    
+}
+.fa-plus {
+    color: rgb(132, 99, 163);
+}

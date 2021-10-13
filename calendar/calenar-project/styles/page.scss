@@ -1,0 +1,21 @@
+.page {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.currentTime {
+    height: 2px;
+    background-color: red;
+    width: 12vw;
+}
+.circle {
+    height: 8px;
+    width: 8px;
+    border-radius: 4px;
+    background-color: red;
+}
+.currentTimeDiv{
+    display: flex;
+}
