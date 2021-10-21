@@ -9,7 +9,7 @@ const closeEventFormBtn = document.querySelector('.create-event__close-btn');
 const [dateModalElement, datePopupElement] = document.querySelectorAll('input[type="date"]');
 const [startDateInputElem, endDateInputElem, startDatePopupInputElem, endDatePopupInputElem] = document.querySelectorAll('input[type="time"]');
 
-export function setCurrentDateInDataElem(type, setDate, endDate) {
+export function setCurrentDateInDateElem(type, setDate, endDate) {
     let currentDate = new Date()
     let eventEndTime = new Date()
     if(setDate) currentDate = setDate;
@@ -34,13 +34,13 @@ export function setCurrentDateInDataElem(type, setDate, endDate) {
     }
 
 }
-setCurrentDateInDataElem('date');
-setCurrentDateInDataElem('time')
+setCurrentDateInDateElem('date');
+setCurrentDateInDateElem('time')
 
 function clearEventForm() {
     eventFormElem.reset();
-    setCurrentDateInDataElem('date')
-    setCurrentDateInDataElem('time')
+    setCurrentDateInDateElem('date')
+    setCurrentDateInDateElem('time')
     dateModalElement.classList.remove('hidden');
 
     // ф-ция должна очистить поля формы от значений
@@ -82,17 +82,9 @@ export function onCreateEvent(event) {
     // и запускаем перерисовку событий с помощью renderEvents
 }
 
-const eventFormSubmitBtnElem = document.querySelector('.event-form__submit-btn')
-const modalElement = document.querySelector('.modal__content')
-
 export function initEventForm() {
-   
-
-
-    eventFormElem.addEventListener('submit', onCreateEvent);
-    onCloseEventForm();
-
-
+eventFormElem.addEventListener('submit', onCreateEvent);
+onCloseEventForm();
     // подпишитесь на сабмит формы и на закрытие формы
 
 

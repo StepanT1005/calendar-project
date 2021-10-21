@@ -6,15 +6,15 @@ const daysOfWeek = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun',];
 
 export const renderHeader = () => {
     const calendarHeaderElem = document.querySelector('.calendar__header');
-    const c = [];
+    const week = [];
     const currentWeek = generateWeekRange(getItem('displayedWeekStart'));
-    currentWeek.map((day) => c.push(day.getDate()));
-    const d = daysOfWeek.map((day, index) => `
+    currentWeek.map((day) => week.push(day.getDate()));
+    const days = daysOfWeek.map((day, index) => `
     <div class='calendar__day-label day-label'>
        <span class='day-label__day-name'>${day}</span>
-       <span class='day-label__day-number'>${c[index]}</span>
+       <span class='day-label__day-number'>${week[index]}</span>
     </div>`).join('');
-    calendarHeaderElem.innerHTML = d;
+    calendarHeaderElem.innerHTML = days;
     // на основе displayedWeekStart из storage с помощью generateWeekRange сформируйте массив дней текущей недели
     // на основе полученного массива сформируйте разметку в виде строки - 7 дней (день недели и число в месяце)
     // полученную разметку вставить на страницу с помощью innerHTML в .calendar__header

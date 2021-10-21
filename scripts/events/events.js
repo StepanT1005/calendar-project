@@ -1,13 +1,12 @@
 import { getItem, setItem } from '../common/storage.js';
 import shmoment from '../common/shmoment.js';
 import { openPopup, closePopup } from '../common/popup.js';
-import { setCurrentDateInDataElem } from './createEvent.js';
+import { setCurrentDateInDateElem } from './createEvent.js';
 import { openModal } from '../common/modal.js';
 import { editEvent } from './editEvent.js'
 import { displayCurrentTime } from './currentTime.js'
 
 const dateModalElement = document.querySelector('input[name="date"]');
-const modalSpanElem = document.querySelector('.modal-span');
 
 const weekElem = document.querySelector('.calendar__week');
 const deleteEventBtn = document.querySelector('.delete-event-btn');
@@ -17,11 +16,15 @@ function createEventOnClickTimeSlot (event) {
     const currentMondayDate = getItem('displayedWeekStart');
     let [currentMonth, currentYear] = [currentMondayDate.getMonth(), currentMondayDate.getFullYear()];
     const currentDay = event.target.closest('.calendar__day').dataset.day;
+
+     if (currentMondayDate.getDate() > currentDay) {
+        currentMonth +=1;
+     }
+
     const currentHour =  event.target.dataset.time;
-    (currentMonth != 11)? currentMonth = currentMondayDate.getMonth():currentMonth +=1;
     const currentDate = new Date(currentYear, currentMonth, currentDay, currentHour)
-    setCurrentDateInDataElem('date', currentDate);
-    setCurrentDateInDataElem('time', currentDate);
+    setCurrentDateInDateElem('date', currentDate);
+    setCurrentDateInDateElem('time', currentDate);
     dateModalElement.classList.add('hidden');
     openModal();
 }
@@ -94,9 +97,9 @@ const createEventElement = event => {
 };
 
 export const renderEvents = () => {
+    displayCurrentTime()
     const allEvents = getItem('events');
     const currentMondayDate = getItem('displayedWeekStart');
-    const copyEvent = JSON.parse(JSON.stringify(allEvents));
     let endWeekDate = new Date(currentMondayDate);
     endWeekDate = new Date(endWeekDate.setDate(endWeekDate.getDate() + 7));
     allEvents.map((event) => {
@@ -104,7 +107,6 @@ export const renderEvents = () => {
             createEventElement(event)
         }
     });
-   
     // достаем из storage все события и дату понедельника отображаемой недели
     // фильтруем события, оставляем только те, что входят в текущую неделю
     // создаем для них DOM элементы с помощью createEventElement
@@ -122,7 +124,6 @@ export function onDeleteEvent() {
     closePopup()
     removeEventsFromCalendar()
     renderEvents()
-    setTimeout(displayCurrentTime, 1)
 
     // достаем из storage массив событий и eventIdToDelete
     // удаляем из массива нужное событие и записываем в storage новый массив
@@ -136,172 +137,3 @@ deleteEventBtn.addEventListener('click', onDeleteEvent);
 weekElem.addEventListener('click', handleEventClick);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-let errorElem = document.querySelector('.error')
-
-const eventFormSubmitBtnElem = document.querySelector('.event-form__submit-btn')
-const eventFormElem = document.querySelector('.event-form');
-const closeEventFormBtn = document.querySelector('.create-event__close-btn');
-
-const startInputElem = document.querySelectorAll('input[type="time"]');
-
-const formData = Object.fromEntries(new FormData(eventFormElem));
-
-const modalElement = document.querySelector('.modal__content')
-
-
-console.log(errorElem)
-const [startDateInputElem, endDateInputElem, startDatePopupInputElem, endDatePopupInputElem] = document.querySelectorAll('input[type="time"]');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const currentDateElem = document.querySelector('input[type="date"]')
-const inputYear = currentDateElem.value.slice(0,4);
-const inputMonth = currentDateElem.value.slice(5,7);
-const inputDay = currentDateElem.value.slice(8,10);
-
-
-import { getDateTime } from '../common/time.utils.js';
-
-let validateTimeEvent;
-let validateTimeEndEvent;
-let timeStart;
-let timeEnd;
-if (((getDateTime(formData.date, formData.startTime)).getMinutes() % 15) !== 0){
-    validateTimeEvent = false
-} else {
-    validateTimeEvent = true
-}
-
-if (((getDateTime(formData.date, formData.endTime)).getMinutes() % 15) !== 0){
-    validateTimeEvent = false;
-}else {
-    validateTimeEvent = true
-}
-function validateTime(event) {
-   if ((event.target.value.slice(3, 5) % 15) !== 0) {
-       validateTimeEvent = false;
-   } else {
-       validateTimeEvent = true;
-       timeStart = (new Date(inputYear, inputMonth, inputDay, event.target.value.slice(0, 2), event.target.value.slice(3, 5)))
-   }
-};
-function validateTimeEnd(event) {
-    if ((event.target.value.slice(3, 5) % 15) !== 0) {
-        validateTimeEndEvent = false;
-    } else {
-        validateTimeEndEvent = true;
-        timeEnd = (new Date(inputYear, inputMonth, inputDay, event.target.value.slice(0, 2), event.target.value.slice(3, 5)))
-    }
- };
-
-// function validateTimeLong() {
-//     const timeLong = ((formData.endTime - formData.startTime) / 60000);
-//     const timeLong2 = (timeEnd - timeStart) / 60000
-//     if (timeLong > 360 || timeLong2 > 360) {
-//         return (console.log(timeLong, timeLong2));
-//      } else {
-//         return (console.log(timeLong, timeLong2));
-
-//      }
-//      return (console.log(timeLong, timeLong2));
-//     } 
-
-
-startDateInputElem.addEventListener('input', validateTime)
-endDateInputElem.addEventListener('input', validateTimeEnd)
-
-function validateForm () {
-    // console.log(timeStart)
-    // console.log(timeEnd)
-    // console.log(validateTimeEvent)
-    if (!validateTimeEvent || !validateTimeEndEvent) {
-        errorElem.innerHTML = 'minute must be multiple 15';
-    } else{
-        errorElem.innerHTML = ''
-    }
-    // validateTimeLong()
-    // if (!validateTimeLong()){
-    //     errorElem.innerHTML = 'event cannot last more than 6 hours'
-    // } else {
-    //     errorElem.innerHTML = '';
-    // }
-
-}
-modalElement.addEventListener('mouseup', validateForm);
-
-
-
-// function validateForm () {
-//     console.log(validate)
-//     if (!validateTimeEvent) {
-//         errorElem.innerHTML = 'minute must be multiple 15';
-//     } else{
-//         errorElem.innerHTML = ''
-//     }
-//     console.log(validateTimeLong())
-// if (validate && validateTimeLong()){
-//     eventFormSubmitBtnElem.disabled = false
-// } else {
-//     eventFormSubmitBtnElem.disabled = true
-// }
-// console.log('asdasdasd')
-// }

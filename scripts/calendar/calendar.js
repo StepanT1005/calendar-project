@@ -16,14 +16,14 @@ const generateDay = () => {
 
 export const renderWeek = () => {
     const calendarWeekElem = document.querySelector('.calendar__week');
-    const c = [];
+    const week = [];
     const currentWeek = generateWeekRange(getItem('displayedWeekStart'));
-    currentWeek.map((day) => c.push(day.getDate()));
-    const d = c.map((day) => `
+    currentWeek.map((day) => week.push(day.getDate()));
+    const day = week.map((day) => `
     <div class='calendar__day' data-day='${day}'>
     ${generateDay()}
     </div>`).join('');
-    calendarWeekElem.innerHTML = d;
+    calendarWeekElem.innerHTML = day;
     renderEvents()
     // функция должна сгенерировать разметку недели в виде строки и вставить ее на страницу (в .calendar__week)
     // разметка недели состоит из 7 дней (.calendar__day) отображаемой недели

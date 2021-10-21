@@ -7,9 +7,7 @@ export const openModal = () =>{
 
 export const closeModal = () =>{
     modalElem.classList.add('hidden')
-    // dateModalElement.classList.remove('hidden');
-    // modalSpanElem.textContent = `-`
-    // console.log('closeModal')
+    
 }
 // опишите ф-ции openModal и closeModal
 // модальное окно работает похожим на попап образом

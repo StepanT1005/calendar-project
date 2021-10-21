@@ -1,6 +1,6 @@
 import { getItem, setItem } from '../common/storage.js';
 import { openPopup, closePopup } from '../common/popup.js';
-import { setCurrentDateInDataElem } from './createEvent.js'
+import { setCurrentDateInDateElem } from './createEvent.js'
 import { getDateTime } from '../common/time.utils.js'
 import { renderEvents } from './events.js';
 import { onDeleteEvent } from './events.js'
@@ -17,8 +17,8 @@ export function editEvent(element) {
     const eventId = element.dataset.eventId
     eventObj = getItem('events').filter(eventEl => eventEl.id == eventId)[0];
     console.log(eventObj['end']);
-    setCurrentDateInDataElem('time', eventObj['start'], eventObj['end']);
-    setCurrentDateInDataElem('date', eventObj['start']);
+    setCurrentDateInDateElem('time', eventObj['start'], eventObj['end']);
+    setCurrentDateInDateElem('date', eventObj['start']);
     popUpTitleElem.value = eventObj['title'];
     popUpDescriptionElem.value = eventObj['description'];
     console.log(editBtnElem)
@@ -35,8 +35,8 @@ function edit(event) {
     closePopup();
     renderEvents();
     eventFormElem.reset();
-    setCurrentDateInDataElem('date')
-    setCurrentDateInDataElem('time')
+    setCurrentDateInDateElem('date')
+    setCurrentDateInDateElem('time')
     onDeleteEvent()
 };
 editBtnElem.addEventListener('click', edit)
