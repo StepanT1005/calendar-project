@@ -11,7 +11,10 @@
 //     }
 
 .popup__content{
-    background-color: rgba(199, 32, 199, 0.815);
+    border-radius: 0px 30px 30px 0px;
+    background-color: rgba(104, 32, 199, 0.815);
+    border-color: transparent;
+    box-shadow: 0px 0px 5px 2px rgba(104, 32, 199, 0.815), 0px 0px 5px 10px rgba(104, 32, 199, 0.815);
 }
 
 .popup-form__field{
